@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Styling -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
+        <!-- Scripts -->
+
+        <!-- Project Scripts -->
+        <script src="assets/js/main.js"></script>
+        <!-- Bootstrap Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    </head>
+    <body class="custom-body">
+        <div class="text-center custom-nav">
+            <h1>Sorting Visualizer</h1>
+            <button class="btn btn-sm btn-primary" onclick="genNewArray()">Generate new array</button> <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="sortingAlgorithm" data-toggle="dropdown" aria-expanded="false">Sort </button>
+            <ul class="dropdown-menu" aria-labelledby="sortingAlgorithm">
+                <li><button class="dropdown-item text-success"  type="button"    onclick="sort(0)">Quick Sort</button></li>
+                <li><button class="dropdown-item text-warning"  type="button"    onclick="sort(1)">Merge Sort</button></li>
+                <li><button class="dropdown-item text-warning"  type="button"    onclick="sort(2)">Heap Sort</button></li>
+                <li><button class="dropdown-item text-danger"   type="button"    onclick="sort(3)">Bubble Sort</button></li>
+              </ul>
+        </div>
+        <div class="text-center" id="arrayVisuals">
+            <!-- Height: Number*3 -->
+            <div class="c-array" style="height: 300px;width: 100px;">100</div>
+        </div>
+    </body>
+    <script>
+        /*
+            Sorting Algorithms:
+                0 - Quick Sort
+                1 - Merge Sort
+                2 - Heap Sort
+                3 - Bubble Sort
+        */
+        let arrayVisuals = document.getElementById('arrayVisuals');
+        genNewArray();
+
+        function genNewArray() {
+            generateNewArray(4, arrayVisuals);
+        }
+
+        function sort(sortingAlgorithm) {
+            switch(sortingAlgorithm) {
+                case 0:
+                    quickSort(arrayVisuals);
+                    break;
+                case 1:
+                    mergeSort(arrayVisuals);
+                    break;
+                case 2:
+                    heapSort(arrayVisuals);
+                    break;
+                case 3:
+                    bubbleSort(arrayVisuals);
+                    break;
+            }
+        }
+    </script>
+</html>
